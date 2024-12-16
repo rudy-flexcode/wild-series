@@ -1,3 +1,4 @@
+import type { Request, Response } from "express"
 // Load environment variables from .env file
 import "dotenv/config";
 
@@ -20,3 +21,8 @@ app
   .on("error", (err: Error) => {
     console.error("Error:", err.message);
   });
+
+  const welcome =(req: Request, res: Response) => {
+    res.send(" Welcome to wild Series ! ");
+  };
+  app.get("/", welcome);
